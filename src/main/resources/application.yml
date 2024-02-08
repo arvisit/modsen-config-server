@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: modsen-config-server
+  profiles:
+    active: git
+  cloud:
+    config:
+      server:
+        git:
+          uri: "https://github.com/arvisit/modsen-configs"
+          default-label: main
+          search-paths: "{application}"
+
+server:
+  port: 8071
+
