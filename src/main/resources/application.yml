@@ -10,6 +10,22 @@ spring:
           uri: "https://github.com/arvisit/modsen-configs"
           default-label: main
           search-paths: "{application}"
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    leaseRenewalIntervalInSeconds: 600
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl:
+      defaultZone:
+        http://${EUREKA_HOSTNAME}:${EUREKA_PORT}/eureka/
 
 server:
   port: 8071
